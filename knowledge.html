@@ -37,7 +37,7 @@
     </nav>
 
     <article class="topic" id="topic-1">
-      <h2><span class="fill">Topic 1:Firewalls and reducing attack surface</span></h2>
+      <h2><span class="fill">Topic 1: Firewalls and reducing attack surface</span></h2>
 
       <h3>My understanding</h3>
       <p><span class="fill">A firewall filters network traffic using rules that decide what to allow, block, or reject based on the source, destination, and port. The key idea is “attack surface” — every open port or allowed protocol is another way into a network. It matters because the safest setup is to allow only the traffic you actually need and block the rest, leaving attackers fewer doors to try.</span></p>
@@ -53,37 +53,40 @@
 </figure>
 
     <article class="topic" id="topic-2">
-      <h2><span class="fill">Topic 2: e.g. Risk management</span></h2>
+      <h2><span class="fill">Topic 2:Exploiting known vulnerabilities</span></h2>
 
       <h3>My understanding</h3>
-      <p><span class="fill">Explain the concept in your own words, as if teaching a classmate. What is it, and why does it matter?</span></p>
+      <p><span class="fill">Metasploit is a framework that lets you run pre-built exploits against known vulnerabilities. You pick a module, set options like the target (RHOST), your own machine (LHOST), and a payload, then launch it. The payload I used was a reverse Meterpreter shell, which calls back to my Kali box and gives me control if it lands. The key idea is that setting up the attack correctly is only half of it — the network path to the target matters just as much. An exploit can be perfectly configured and still fail if it can’t reach the vulnerable service.</span></p>
 
       <h3>Examples and applications</h3>
-      <p><span class="fill">A real-world case, a lab or assignment from class, or a situation from work or daily life where this concept applies. Cite any outside sources in APA style, e.g. (Author, Year).</span></p>
+      <p><span class="fill">In my lab I used Metasploit to run the EternalBlue (MS17-010) exploit against an unpatched Windows Server 2008 at 192.168.10.11. I set the module, payload, and ports, confirmed everything with show options, and ran it. It failed with “HostUnreachable” — no session was created. I scanned the target with nmap -Pn -p 445 and found port 445 (SMB) was filtered, meaning the pfSense firewall between the two subnets was silently dropping the traffic. This is a textbook case of defense in depth: the server was old and vulnerable, but the firewall still stopped an outside attacker from ever reaching the exploitable service.</span></p>
 
       <h3>Artifact</h3>
       <figure class="artifact">
-        <!-- Swap in your artifact: an image (screenshot, infographic), an embedded slide deck, a linked essay, or a code block -->
-        <p><span class="fill">Embed or link your artifact here.</span> Example: <a href="artifacts/topic2-artifact.pdf">Download the artifact (PDF)</a></p>
-        <figcaption><span class="fill">One or two sentences: what this artifact is, when you made it, and what it shows about your learning.</span></figcaption>
-      </figure>
+  <img src="images/eternalblue-blocked.png" alt="Metasploit HostUnreachable error and Nmap showing port 445 filtered" width="600">
+  <p>Example: <a href="artifacts/metasploit-lab-report.pdf">Download the artifact (PDF)</a></p>
+  <figcaption><span class="fill">My Metasploit EternalBlue lab report. The screenshot shows the exploit failing with HostUnreachable and Nmap confirming port 445 was filtered by the pfSense firewall.</span></figcaption>
+</figure>
     </article>
 
     <article class="topic" id="topic-3">
       <h2><span class="fill">Topic 3: e.g. Social engineering</span></h2>
 
       <h3>My understanding</h3>
-      <p><span class="fill">Explain the concept in your own words, as if teaching a classmate. What is it, and why does it matter?</span></p>
+      <p><span class="fill">Network utilities are built-in command-line tools that let you see how your computer connects to a network and the wider internet. The three I focused on each answer a different question: ipconfig shows your own configuration (IP address, default gateway, subnet mask), tracert maps the path your traffic takes to reach a destination hop by hop, and netstat lists the active connections your machine currently has open. Together they matter because you can’t secure or troubleshoot a network you can’t see — these tools turn an invisible connection into something you can actually read and reason about.</span></p>
 
       <h3>Examples and applications</h3>
-      <p><span class="fill">A real-world case, a lab or assignment from class, or a situation from work or daily life where this concept applies. Cite any outside sources in APA style, e.g. (Author, Year).</span></p>
+      <p><span class="fill">In my lab I ran all three. ipconfig showed my IP, gateway, and subnet mask, which tells me whether another device is on my local network or remote. With tracert I compared two destinations: YouTube took 28 hops with lots of timeouts as it routed into Google’s own network, while stake.us reached its target in just 12 hops with almost none, going through Cloudflare — but both shared the same early hops and exited through Internet2, since that’s VCU’s fixed upstream provider. Finally, netstat let me check my open connections; the traffic looked like a normal workstation with no unfamiliar IPs or ports, which is exactly how you’d spot something suspicious if it showed up.</span></p>
 
       <h3>Artifact</h3>
       <figure class="artifact">
         <!-- Swap in your artifact: an image (screenshot, infographic), an embedded slide deck, a linked essay, or a code block -->
         <p><span class="fill">Embed or link your artifact here.</span> Example: <a href="artifacts/topic3-artifact.pdf">Download the artifact (PDF)</a></p>
-        <figcaption><span class="fill">One or two sentences: what this artifact is, when you made it, and what it shows about your learning.</span></figcaption>
-      </figure>
+        <figure class="artifact">
+  <img src="images/tracert-comparison.png" alt="Tracert output comparing hops to two different destinations" width="600">
+  <p>Example: <a href="artifacts/network-utilities-report.pdf">Download the artifact (PDF)</a></p>
+  <figcaption><span class="fill">My network utilities lab report. The screenshot shows a tracert comparison between two destinations, with different hop counts and routing paths.</span></figcaption>
+</figure>
     </article>
 
     <!-- Code snippet artifact example, if one of your artifacts is code:
