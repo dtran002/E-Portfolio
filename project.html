@@ -63,7 +63,9 @@
       <!-- REQUIRED: 500–800 words, your own writing. Scaffold below — replace each span. -->
 
       <h3>How passwords are stored</h3>
-      <p><span class="fill">~150 words: explain the $6$/salt/hash parts, then answer the lab's question — what is a salt for and why does it matter?</span></p>
+      <p><span class="fill">~150 words: In Linux, password hashes are stored in a format like $6$salt$hash, where each part has a specific purpose. The $6$ represents the hashing algorithm, which is SHA-512 crypt. The salt is a randomly generated value added to a password before hashing, and the hash is the final encrypted-looking result stored instead of the actual password. When a user logs in, the system hashes the entered password using the same salt and compares it to the stored hash.
+
+A salt is important because it adds randomness to the hashing process, making passwords more secure. Even if two users have the same password, their hashes will be different because they use different salts. This helps protect against attacks using precomputed hash tables, such as rainbow tables. Salts also make it harder for hackers to identify users with matching passwords. Overall, salting improves password security and makes large-scale password cracking more difficult.</span></p>
 
       <h3>Brute force versus dictionary attacks</h3>
       <p><span class="fill">~175 words: define each attack, then explain why the two methods cracked different numbers, and what that reveals about which passwords fall first. Use a real number (e.g. how fast the dictionary ran).</span></p>
