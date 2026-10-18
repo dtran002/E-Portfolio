@@ -28,31 +28,53 @@
     </div>
   </header>
 
-  <main id="main">
-    <h1><span class="fill">Project title</span></h1>
-    <p class="page-intro"><span class="fill">One-sentence summary: what you investigated and why it matters.</span></p>
+   <main id="main">
+    <h1>Cracking Linux Passwords: How Storage, Salting, and Attacks Interact</h1>
+    <p class="page-intro">A three-part lab (ICA-4) where I examined how Linux stores
+      passwords, then tried to recover them using offline brute-force and dictionary attacks.
+      <span class="fill">Note which course this lab was from if it differs from this one.</span></p>
 
     <section>
       <h2>Overview</h2>
-      <p><span class="fill">Describe the project: a research question, case study, security assessment, or technical build. Include its scope and the methods or tools you used.</span></p>
+      <p><span class="fill">~75 words: what ICA-4 was, the three parts, the tools (John the Ripper on Kali), and your headline result — 14 of 20 hashes cracked.</span></p>
     </section>
 
     <section>
       <h2>The work</h2>
+
       <figure class="artifact">
-        <!-- Screenshots, diagrams, findings tables, or a link to a full report -->
-        <p><span class="fill">Show your project materials here: annotated screenshots, a network diagram, findings, or a linked report.</span></p>
-        <figcaption><span class="fill">Caption describing this figure.</span></figcaption>
+        <img src="images/ica4-shadow.png" alt="Shadow file entry showing the $6$ SHA-512 prefix, salt, and hash">
+        <figcaption><span class="fill">Part 1: the shadow entry, with the algorithm ID, salt, and hash labeled.</span></figcaption>
       </figure>
+
+      <figure class="artifact">
+        <img src="images/ica4-bruteforce.png" alt="John the Ripper output showing cracked hashes from the brute-force lab">
+        <figcaption><span class="fill">Part 2: brute-force results — 14 of 20 hashes cracked.</span></figcaption>
+      </figure>
+
+      <figure class="artifact">
+        <img src="images/ica4-dictionary.png" alt="Dictionary attack output showing cracked passwords and time taken">
+        <figcaption><span class="fill">Part 3: dictionary attack — cracked passwords and the time it took.</span></figcaption>
+      </figure>
+
+      <p><a href="ica4-password-lab.pdf">Read my full ICA-4 lab report (PDF)</a></p>
     </section>
 
     <section>
-      <h2>Analysis and reflection</h2>
-      <!-- REQUIRED: 500 to 800 words. Suggested flow below; replace each paragraph. -->
-      <p><span class="fill">What you set out to learn, and how it connects to course concepts.</span></p>
-      <p><span class="fill">Key findings or results, with supporting evidence and APA citations.</span></p>
-      <p><span class="fill">Your own insight: what surprised you, what you would recommend, and what trade-offs you saw.</span></p>
-      <p><span class="fill">Limitations and what you would do differently or explore next.</span></p>
+      <h2>Analysis</h2>
+      <!-- REQUIRED: 500–800 words, your own writing. Scaffold below — replace each span. -->
+
+      <h3>How passwords are stored</h3>
+      <p><span class="fill">~150 words: explain the $6$/salt/hash parts, then answer the lab's question — what is a salt for and why does it matter?</span></p>
+
+      <h3>Brute force versus dictionary attacks</h3>
+      <p><span class="fill">~175 words: define each attack, then explain why the two methods cracked different numbers, and what that reveals about which passwords fall first. Use a real number (e.g. how fast the dictionary ran).</span></p>
+
+      <h3>Why it matters</h3>
+      <p><span class="fill">~125 words: which part of the CIA triad this threatens, and what makes a password survive (length, uniqueness, slow salted hashing). Cite the Chapter 6 slides here.</span></p>
+
+      <h3>Takeaway</h3>
+      <p><span class="fill">~75 words: what surprised you and what you'd recommend as a defense.</span></p>
     </section>
   </main>
 
