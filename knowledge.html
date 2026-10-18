@@ -43,7 +43,7 @@
       <p><span class="fill">A firewall filters network traffic using rules that decide what to allow, block, or reject based on the source, destination, and port. The key idea is “attack surface” — every open port or allowed protocol is another way into a network. It matters because the safest setup is to allow only the traffic you actually need and block the rest, leaving attackers fewer doors to try.</span></p>
 
       <h3>Examples and applications</h3>
-      <p><span class="fill">In my firewall lab I used pfSense to block ICMP (ping) from Kali to the Ubuntu VM, which made the host look offline to Nmap and harder to scan. I also rejected FTP on port 21, since FTP sends passwords in plain text and the server even had anonymous login enabled. This mirrors how real organizations lock down their firewalls to expose only required services (CISA, 2023).</span></p>
+      <p><span class="fill">In my firewall lab I used pfSense to block ICMP (ping) from Kali to the Ubuntu VM, which made the host look offline to Nmap and harder to scan. I also rejected FTP on port 21, since FTP sends passwords in plain text and the server even had anonymous login enabled. This mirrors how real organizations lock down their firewalls to expose only required services.</span></p>
 
       <h3>Artifact</h3>
       <figure class="artifact">
