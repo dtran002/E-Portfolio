@@ -37,21 +37,20 @@
     </nav>
 
     <article class="topic" id="topic-1">
-      <h2><span class="fill">Topic 1: e.g. The CIA triad</span></h2>
+      <h2><span class="fill">Topic 1:Firewalls and reducing attack surface</span></h2>
 
       <h3>My understanding</h3>
-      <p><span class="fill">Explain the concept in your own words, as if teaching a classmate. What is it, and why does it matter?</span></p>
+      <p><span class="fill">A firewall filters network traffic using rules that decide what to allow, block, or reject based on the source, destination, and port. The key idea is “attack surface” — every open port or allowed protocol is another way into a network. It matters because the safest setup is to allow only the traffic you actually need and block the rest, leaving attackers fewer doors to try.</span></p>
 
       <h3>Examples and applications</h3>
-      <p><span class="fill">A real-world case, a lab or assignment from class, or a situation from work or daily life where this concept applies. Cite any outside sources in APA style, e.g. (Author, Year).</span></p>
+      <p><span class="fill">In my firewall lab I used pfSense to block ICMP (ping) from Kali to the Ubuntu VM, which made the host look offline to Nmap and harder to scan. I also rejected FTP on port 21, since FTP sends passwords in plain text and the server even had anonymous login enabled. This mirrors how real organizations lock down their firewalls to expose only required services (CISA, 2023).</span></p>
 
       <h3>Artifact</h3>
       <figure class="artifact">
-        <!-- Swap in your artifact: an image (screenshot, infographic), an embedded slide deck, a linked essay, or a code block -->
-        <p><span class="fill">Embed or link your artifact here.</span> Example: <a href="artifacts/topic1-artifact.pdf">Download the artifact (PDF)</a></p>
-        <figcaption><span class="fill">One or two sentences: what this artifact is, when you made it, and what it shows about your learning.</span></figcaption>
-      </figure>
-    </article>
+  <img src="images/icmp-block-proof.png" alt="Nmap reporting host down and ping at 100% packet loss after pfSense block rule" width="600">
+  <p>Example: <a href="images/firewall-lab-report.pdf">Download the artifact (PDF)</a></p>
+  <figcaption><span class="fill">My firewall lab report from this semester. The screenshot shows Nmap reporting the host as down and ping hitting 100% packet loss after I applied the pfSense block rule.</span></figcaption>
+</figure>
 
     <article class="topic" id="topic-2">
       <h2><span class="fill">Topic 2: e.g. Risk management</span></h2>
