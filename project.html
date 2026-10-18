@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Project showcase | Your Name, Cybersecurity ePortfolio</title>
-  <meta name="description" content="Cybersecurity Principles ePortfolio by Your Name.">
+  <title>Project showcase | Dylan Tran, Cybersecurity ePortfolio</title>
+  <meta name="description" content="Cybersecurity Principles ePortfolio by Dylan Tran.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="inner">
-      <a class="site-name" href="index.html">Your Name</a>
+      <a class="site-name" href="index.html">Dylan Tran</a>
       <nav class="site-nav" aria-label="Main">
         <ul>
         <li><a href="index.html">Home</a></li>
@@ -35,7 +35,7 @@
 
     <section>
       <h2>Overview</h2>
-      <p><span class="fill">~75 words: what ICA-4 was, the three parts, the tools (John the Ripper on Kali), and your headline result — 14 of 20 hashes cracked.</span></p>
+      <p><span class="fill">was a hands-on password-cracking lab run in Kali Linux, split into three parts: the Passwords Lab, where I explored how Linux stores salted SHA-512 hashes in /etc/shadow; the Dictionary Lab, where I built a wordlist of names and cracked matching accounts; and the Brute Force Lab, where I cracked a larger set of hashes. The tool throughout was John the Ripper, pre-installed on Kali. My headline result: 14 of 20 hashes cracked.</span></p>
     </section>
 
     <section>
@@ -63,12 +63,12 @@
       <!-- REQUIRED: 500–800 words, your own writing. Scaffold below — replace each span. -->
 
       <h3>How passwords are stored</h3>
-      <p><span class="fill">~150 words: In Linux, password hashes are stored in a format like $6$salt$hash, where each part has a specific purpose. The $6$ represents the hashing algorithm, which is SHA-512 crypt. The salt is a randomly generated value added to a password before hashing, and the hash is the final encrypted-looking result stored instead of the actual password. When a user logs in, the system hashes the entered password using the same salt and compares it to the stored hash.
+      <p><span class="fill">In Linux, password hashes are stored in a format like $6$salt$hash, where each part has a specific purpose. The $6$ represents the hashing algorithm, which is SHA-512 crypt. The salt is a randomly generated value added to a password before hashing, and the hash is the final encrypted-looking result stored instead of the actual password. When a user logs in, the system hashes the entered password using the same salt and compares it to the stored hash.
 
 A salt is important because it adds randomness to the hashing process, making passwords more secure. Even if two users have the same password, their hashes will be different because they use different salts. This helps protect against attacks using precomputed hash tables, such as rainbow tables. Salts also make it harder for hackers to identify users with matching passwords. Overall, salting improves password security and makes large-scale password cracking more difficult.</span></p>
 
       <h3>Brute force versus dictionary attacks</h3>
-      <p><span class="fill">~175 words: define each attack, then explain why the two methods cracked different numbers, and what that reveals about which passwords fall first. Use a real number (e.g. how fast the dictionary ran).</span></p>
+      <p><span class="fill">A dictionary attack cracks passwords by taking a prepared list of likely candidates — common words, names, and leaked passwords — hashing each one, and checking for a match. In my run, John used password.lst along with single and wordlist rules, testing about 747 candidates per second. A brute force attack is different: instead of a list, it generates every possible combination itself, starting short and getting longer. The two methods cracked different numbers because real people don’t choose random passwords — they pick words and patterns, which is exactly what a dictionary is full of. That’s why my dictionary run caught 14 of 20 hashes, scooping up predictable ones like harrypotter, 654321, and hal9000 early. Brute force only wins on short, random strings like k7q2 that would never appear in a wordlist, but anything longer takes an impossibly long time to guess. This shows that passwords fall in order of predictability, not length: common words go first, and long random passwords are cracked last, if ever.</span></p>
 
       <h3>Why it matters</h3>
       <p><span class="fill">~125 words: which part of the CIA triad this threatens, and what makes a password survive (length, uniqueness, slow salted hashing). Cite the Chapter 6 slides here.</span></p>
@@ -80,7 +80,7 @@ A salt is important because it adds randomness to the hashing process, making pa
 
   <footer class="site-footer">
     <div class="inner">
-      <p>&copy; 2026 Your Name. Created for Cybersecurity Principles, <span class="fill">Fall 2026</span>. All sources are cited on the <a href="references.html">References</a> page.</p>
+      <p>&copy; 2026 Dylan Tran. Created for Cybersecurity Principles, <span class="fill">Fall 2026</span>. All sources are cited on the <a href="references.html">References</a> page.</p>
     </div>
   </footer>
 </body>
